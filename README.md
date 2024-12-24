@@ -9,6 +9,7 @@ Keep your `pubspec.yaml` organized by alphabetically sorting ```dependencies:```
 - Sorts `dependencies` and `dev_dependencies` alphabetically.
 - Maintains additional metadata for dependencies (e.g., paths, Git URLs and refs, version constraints).
 - CLI support for easy integration into development workflows.
+- The package is implemented exclusively using Dart tools, there are no transitive dependencies.
 - Lightweight and fast.
 
 ## Installation
