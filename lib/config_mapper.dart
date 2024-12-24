@@ -69,7 +69,7 @@ final class ConfigMapper {
 
       return configFile.readAsLinesSync();
     } on Object catch (_) {
-      print("sort_dependencies.yaml can't be fetched");
+      print("sort_dependencies.yaml does not exists");
 
       return null;
     }
