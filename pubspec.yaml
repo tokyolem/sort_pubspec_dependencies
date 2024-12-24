@@ -10,4 +10,4 @@ dependencies:
   pana: ^0.22.17
 
 executables:
-  sort_pubspec_dependencies: bin/sort_pubspec_dependencies.dart
+  sort_pubspec_dependencies: sort_pubspec_dependencies.dart

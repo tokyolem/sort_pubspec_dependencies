@@ -20,12 +20,10 @@ Future<void> main(List<String> args) async {
 
     if (needRunPubGet) await ProcessRunner.runPubGet();
 
-    print(
-      '''
+    print('''
       
 Dependencies successfully sorted!
-      '''
-    );
+      ''');
   } on Object catch (e) {
     print(e);
   }
