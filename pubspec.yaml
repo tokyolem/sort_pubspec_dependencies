@@ -7,4 +7,4 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 executables:
-  sort_pubspec_dependencies: sort_pubspec_dependencies.dart
+  sort_pubspec_dependencies: sort_pubspec_dependencies
