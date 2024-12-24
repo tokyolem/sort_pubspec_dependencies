@@ -6,8 +6,5 @@ repository: https://github.com/tokyolem/sort_pubspec_dependencies
 environment:
   sdk: '>=3.0.0 <4.0.0'
 
-dependencies:
-  pana: ^0.22.17
-
 executables:
   sort_pubspec_dependencies: sort_pubspec_dependencies.dart
