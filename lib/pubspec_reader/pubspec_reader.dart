@@ -34,7 +34,7 @@ final class PubspecReader {
           '''
 Error:
   pubspec.yaml not found.
-  
+
   Solutions:
   - Check the presence of pubspec.yaml in the main project directory
   - Explicitly specify the path to your pubspec.yaml through the config (pubspec_path)
@@ -69,6 +69,8 @@ Error:
     try {
       final dependenciesSectionRegExp = RegExp(r'^\s*dependencies\s*:$');
       final devDependenciesSectionRegExp = RegExp(r'^\s*dev_dependencies\s*:$');
+      final dependenciesOverrideSectionRegExp =
+          RegExp(r'^\s*dependency_overrides\s*:$');
 
       final pubspecLines = pubspecFile.readAsLinesSync();
 
@@ -79,6 +81,10 @@ Error:
       final devDependencies = _extractDependencies(
         pubspecLines,
         devDependenciesSectionRegExp,
+      );
+      final dependenciesOverride = _extractDependencies(
+        pubspecLines,
+        dependenciesOverrideSectionRegExp,
       );
 
       final replacedDependenciesLines = _replaceDependencies(
@@ -91,8 +97,13 @@ Error:
         devDependencies,
         devDependenciesSectionRegExp,
       );
+      final replacedDependenciesOverride = _replaceDependencies(
+        replacedDevDependencies,
+        dependenciesOverride,
+        dependenciesOverrideSectionRegExp,
+      );
 
-      return replacedDevDependencies.join('\n');
+      return replacedDependenciesOverride.join('\n');
     } on Object catch (_) {
       rethrow;
     }
