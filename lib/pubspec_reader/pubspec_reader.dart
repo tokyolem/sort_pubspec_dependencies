@@ -140,10 +140,20 @@ Error:
         break;
       }
 
+      if (line.trim().isEmpty || line.trim().startsWith('#')) continue;
+
       if (inSection && line.isNotEmpty && !line.startsWith('    ')) {
+        final leadingComments = <String>[];
+        for (var commentIndex = index - 1; commentIndex >= 0; commentIndex--) {
+          final commentLine = lines[commentIndex];
+          if (!commentLine.trim().startsWith('#')) break;
+          leadingComments.insert(0, commentLine);
+        }
+
         var mainDependency = Dependency(
           dependencyName: line,
           dependencyAdditionalLines: const [],
+          leadingComments: leadingComments,
         );
 
         for (var additionalIndex = index + 1;
@@ -234,6 +244,9 @@ Error:
       }
 
       copyLines.insert(startSectionIndex, dependency.dependencyName);
+      for (final comment in dependency.leadingComments.reversed) {
+        copyLines.insert(startSectionIndex, comment);
+      }
     }
 
     return copyLines;
