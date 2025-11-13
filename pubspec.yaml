@@ -1,6 +1,6 @@
 name: sort_pubspec_dependencies
 description: Dev dart package for sorting dependencies and dev_dependencies in pubspec.yaml
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/tokyolem/sort_pubspec_dependencies
 
 environment:

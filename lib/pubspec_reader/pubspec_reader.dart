@@ -103,7 +103,7 @@ Error:
         dependenciesOverrideSectionRegExp,
       );
 
-      return replacedDependenciesOverride.join('\n').trim() + '\n';
+      return '${replacedDependenciesOverride.join('\n').trim()}\n';
     } on Object catch (_) {
       rethrow;
     }
